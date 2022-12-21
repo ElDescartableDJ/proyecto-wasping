@@ -3,7 +3,7 @@
 clear
 
 source presentacion.sh
-
+source select-arrow.sh
 source ip-finder.sh
 
 
@@ -16,11 +16,18 @@ echo $ip
 
 echo "================="
 
-echo $reporte
+#echo $reporte
 
 echo "================="
 
 array=($reporte)
 
-echo "${array[0]}"
+#echo "${array[0]}"
 
+
+
+case `select_opt "${array[@]}"` in
+    0) echo "has elegido";;
+    1) OPTION="selected No";;
+    *) OPTION="selected ${array[$?]}";;
+esac
